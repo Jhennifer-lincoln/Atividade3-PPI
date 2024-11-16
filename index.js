@@ -32,7 +32,7 @@ function cadastroEmpresaView(req, res) {
             <body>
                 <div class="container">
                     <h1>Cadastro de Empresas</h1>
-                    <form method="POST" action="/cadastrar">
+                    <form method="POST" action="/">
                         <div class="mb-3">
                             <label for="cnpj" class="form-label">CNPJ</label>
                             <input type="text" class="form-control" id="cnpj" name="cnpj" required>
@@ -142,7 +142,7 @@ function cadastrarEmpresa(req, res) {
                         <ul>
                             ${errors.map(error => `<li>${error}</li>`).join('')}
                         </ul>
-                        <a href="/cadastrar" class="btn btn-secondary">Voltar</a>
+                        <a href="/" class="btn btn-secondary">Voltar</a>
                     </div>
                 </body>
             </html>
@@ -152,12 +152,12 @@ function cadastrarEmpresa(req, res) {
 
     empresas.push({ cnpj, razao, fantasia, endereco, cidade, uf, cep, email, telefone });
 
-    res.redirect('/cadastrar');
+    res.redirect('/');
 }
 
-app.get('/cadastrar', cadastroEmpresaView);
-app.post('/cadastrar', cadastrarEmpresa);
+app.get('/', cadastroEmpresaView);
+app.post('/', cadastrarEmpresa);
 
 app.listen(porta, host, () => {
-    console.log(`Servidor iniciado em http://${host}:${porta}/cadastrar`);
+    console.log(`Servidor iniciado em http://${host}:${porta}`);
 });

@@ -8,8 +8,8 @@
   ],
   "routes": [
     {
-      "src": "/cadastrar",
-      "dest": "/api/cadastrar"
+      "src": "/(.*)",
+      "dest": "index.js"
     }
   ]
 }
